@@ -1,11 +1,11 @@
 # aipage-widget
 > 开发aipage-widget自定义组件的工具集（支持react、vue2.0技术栈）
-- 提供√和插件的方法；
+- 提供注册 aipage-editor 自定义插件和渲染器的方法；
 - 目前支持的技术栈：react、vue2.0技术栈；
 
 ### 提供的方法
-- registerRenderer: 注册 aipage-widget 自定义渲染器
-- registerPlugin: 注册 aipage-widget 自定义插件（在组件物料面板展示）
+- registerRenderer: 注册 aipage-editor 自定义渲染器
+- registerPlugin: 注册 aipage-editor 自定义插件（在组件物料面板展示）
 
 ### 在线Demo
 [点击访问在线Demo](https://aisuda.github.io/aipage-widget/test/preview.html)
@@ -16,7 +16,7 @@
 npm install --save aipage-widget
 ```
 
-## 注册 aipage-widget 自定义渲染器
+## 注册 aipage-editor 自定义渲染器
 ```tsx
 import { registerRenderer } from 'aipage-widget';
 class InfoCard extends React.PureComponent {
@@ -45,7 +45,7 @@ registerRenderer(InfoCard, {
 export default InfoCard;
 ```
 
-## 注册aipage-widget插件
+## 注册aipage-editor插件
 ```tsx
 import { registerPlugin } from 'aipage-widget';
 
