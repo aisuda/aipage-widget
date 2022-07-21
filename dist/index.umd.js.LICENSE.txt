@@ -1,0 +1,7 @@
+/*!
+ * aipage-widget v1.0.1
+ * author: wibetter
+ * build tool: AKFun
+ * build time: Thu Jul 21 2022 17:57:35 GMT+0800 (中国标准时间)
+ * build tool info: https://github.com/wibetter/akfun
+ */

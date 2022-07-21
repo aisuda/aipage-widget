@@ -11,7 +11,7 @@ export function createVue2Component(vueObj: any) {
     return;
   }
 
-  class VueFactory extends React.Component {
+  class VueFactory extends React.Component<any> {
     domRef: any;
     vm: any;
 
@@ -50,8 +50,8 @@ export function createVue2Component(vueObj: any) {
           };
         }
       });
-
-      this.domRef.current.appendChild(this.vm.$mount().$el);
+      this.domRef.current.appendChild(this.vm.$mount().$el); // 最外层会多一个div【待优化】
+      this.domRef.current.setAttribute('data-component-id', this.props.id);
     }
 
     // 渲染子元素

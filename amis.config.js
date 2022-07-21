@@ -75,7 +75,7 @@ module.exports = {
     closeHotReload: false, // 是否关闭热更新
     closeEditorClient: true, // 是否关闭自动注入amis-editor
   },
-  linkDebug: {
+  linkDebug1: {
     entry: { // 外链调试（爱速搭中预览本地自定义组件）
       index: [
         './demo/react-widget/index.js',
@@ -94,7 +94,26 @@ module.exports = {
     cssSourceMap: true,
     closeHotReload: true, // 是否关闭热更新
     debugMode: 'aipage-editor'
-    
+  },
+  linkDebug: { // 外链调试（使用构建后的 aipage-widget）
+    entry: { // 外链调试：爱速搭中预览本地自定义组件）
+      index: [
+        './demo2/react-widget/index.js',
+        './demo2/react-widget/plugin.jsx',
+        './demo2/vue-widget/index.js',
+        './demo2/vue-widget/plugin.jsx',
+      ],
+    },
+    NODE_ENV: 'production',
+    port: 80,
+    autoOpenBrowser: false,
+    closeHtmlWebpackPlugin: true, // 关闭HtmlWebpackPlugin
+    assetsPublicPath: '/', // 设置静态资源的引用路径（根域名+路径）
+    assetsSubDirectory: '',
+    hostname: 'localhost',
+    cssSourceMap: true,
+    closeHotReload: true, // 是否关闭热更新
+    debugMode: 'aipage-editor'
   },
   build: {
     entry: { // webpack构建入口
