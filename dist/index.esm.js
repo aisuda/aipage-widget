@@ -1,5 +1,4 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Vue from 'vue';
 import pick from 'lodash/pick';
 import isNumber from 'lodash/isNumber';
@@ -216,11 +215,11 @@ function createVue2Component(vueObj) {
     class VueFactory extends React.Component {
         domRef;
         vm;
+        isUnmount;
         constructor(props) {
             super(props);
             this.domRef = React.createRef();
             this.resolveAmisProps = this.resolveAmisProps.bind(this);
-            this.renderChild = this.renderChild.bind(this);
         }
         componentDidMount() {
             const { amisData, amisFunc } = this.resolveAmisProps();
@@ -234,31 +233,19 @@ function createVue2Component(vueObj) {
             });
             Object.keys(amisFunc).forEach((key) => {
                 this.vm.$props[key] = amisFunc[key];
-                if (key === 'render') {
-                    // 避免和vue中的render冲突
-                    this.vm.$props['renderChild'] = (schemaPosition, childSchema, insertElemId) => {
-                        this.renderChild(schemaPosition, childSchema, insertElemId);
-                    };
-                }
             });
             this.domRef.current.appendChild(this.vm.$mount().$el); // 最外层会多一个div【待优化】
             this.domRef.current.setAttribute('data-component-id', this.props.id);
         }
-        // 渲染子元素
-        renderChild(schemaPosition, childSchema, insertElemId) {
-            let childElemCont = null;
-            if (this.props['render'] && childSchema && insertElemId) {
-                const childElem = this.props['render'](schemaPosition, childSchema);
-                childElemCont = ReactDOM.render(childElem, document.getElementById(insertElemId));
-            }
-            return childElemCont;
-        }
         componentDidUpdate() {
-            Object.keys(this.props).forEach((key) => typeof this.props[key] !== 'function' &&
-                (this.vm[key] = this.props[key]));
-            this.vm.$forceUpdate();
+            if (!this.isUnmount) {
+                Object.keys(this.props).forEach((key) => typeof this.props[key] !== 'function' &&
+                    (this.vm[key] = this.props[key]));
+                this.vm.$forceUpdate();
+            }
         }
         componentWillUnmount() {
+            this.isUnmount = true;
             this.vm.$destroy();
         }
         resolveAmisProps() {

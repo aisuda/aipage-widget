@@ -8,6 +8,8 @@ import React from 'react';
 import { createApp } from 'vue/dist/vue.esm-bundler';
 
 class Vue3Factory extends React.Component {
+  isUnmount: boolean;
+
   constructor(props) {
     super(props);
     this.App = null;
@@ -22,14 +24,17 @@ class Vue3Factory extends React.Component {
   }
 
   componentDidUpdate() {
-    const { amisData, amisFunc } = this.resolveAmisProps();
-    if (this.vm) {
-      this.vm.$data.props = amisData;
+    if (!this.isUnmount) {
+      const { amisData, amisFunc } = this.resolveAmisProps();
+      if (this.vm) {
+        this.vm.$data.props = amisData;
+      }
     }
   }
 
   componentWillUnmount() {
     this.app && this.app.unmount();
+    this.isUnmount = true;
   }
 
   resolveAmisProps() {
