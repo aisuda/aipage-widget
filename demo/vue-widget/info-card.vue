@@ -24,7 +24,7 @@ export default {
   data() {
     return {
       isAlive: true,
-      isFirstVisit: true,
+      isFirstVisit: true
     };
   },
   computed: {

@@ -5,8 +5,8 @@
   "keywords": [
     "aipage-widget",
     "自定义组件注册器",
-    "aipage-widget自定义组件",
-    "aipage-widget自定义插件"
+    "aipage-editor自定义组件",
+    "aipage-editor自定义插件"
   ],
   "author": "wibetter",
   "license": "MIT",
@@ -49,10 +49,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://git@github.com:aisuda/aipage-editor.git"
+    "url": "https://git@github.com:aisuda/aipage-widget.git"
   },
   "bugs": {
-    "url": "https://github.com/aisuda/aipage-editor/issues"
+    "url": "https://github.com/aisuda/aipage-widget/issues"
   },
   "dependencies": {
     "classnames": "^2.3.1",
