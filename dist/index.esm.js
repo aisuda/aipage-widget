@@ -33,7 +33,7 @@ function getFramework(_framework) {
         case 'vue3.0':
         case 'vue 3.0':
             curFramework = Framework.vue3;
-            console.error('aipage-widget暂不支持vue3.0技术栈，请改用vue3-aipage-widget支持。');
+            console.error('aipage-widget 不支持vue3.0技术栈，请改用vue3-aipage-widget支持。');
             break;
         default:
             curFramework = Framework.react;
@@ -227,7 +227,7 @@ function createVue2Component(vueObj) {
                 typeof vueObj === 'function' ? new vueObj() : vueObj);
             // 传入的Vue属性
             this.vm = new Vue({
-                data: extendObject(amisData, typeof data === 'function' ? data() : data),
+                data: () => extendObject(amisData, typeof data === 'function' ? data() : data),
                 ...rest,
                 props: rest.props || {},
             });
@@ -269,7 +269,6 @@ function createVue2Component(vueObj) {
     return VueFactory;
 }
 
-// import { createVue3Component } from '../frameworkFactory/vue3Factory';
 /**
  * registerRenderer: 注册一个aipage-editor自定义渲染器
  *【方法参数说明】

@@ -115,26 +115,6 @@ module.exports = {
     closeHotReload: true, // 是否关闭热更新
     debugMode: 'aipage-editor'
   },
-  build: {
-    entry: { // webpack构建入口
-      preview: [
-        './demo/react-widget/index.js',
-        './demo/react-widget/plugin.jsx',
-        './demo/vue-widget/index.js',
-        './demo/vue-widget/plugin.jsx',
-      ],
-    },
-    // 用于构建生产环境代码的相关配置信息
-    NODE_ENV: 'production',
-    assetsRoot: resolve('./test'), // 打包后的文件绝对路径（物理路径）
-    assetsPublicPath: 'https://aisuda.github.io/aipage-widget/test/', // 设置静态资源的引用路径（根域名+路径）
-    assetsSubDirectory: '', // 资源引用二级路径
-    productionSourceMap: false,
-    productionGzip: false,
-    productionGzipExtensions: ['js', 'css', 'json'],
-    plugins: [],
-    bundleAnalyzerReport: false,
-  },
   build2lib: {
     entry: {
       // webpack构建入口

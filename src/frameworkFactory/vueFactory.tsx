@@ -29,10 +29,8 @@ export function createVue2Component(vueObj: any) {
 
       // 传入的Vue属性
       this.vm = new Vue({
-        data: extendObject(
-          amisData,
-          typeof data === 'function' ? data() : data,
-        ),
+        data: () =>
+          extendObject(amisData, typeof data === 'function' ? data() : data),
         ...rest,
         props: rest.props || {},
       });
