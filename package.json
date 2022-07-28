@@ -1,6 +1,6 @@
 {
   "name": "aipage-widget",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "description": "aipage-editor自定义组件注册器（支持react和vue2.0技术栈），用于注册自定义渲染器和插件",
   "keywords": [
     "aipage-widget",
@@ -16,6 +16,7 @@
     "dev": "amis dev",
     "preview": "amis preview",
     "linkDebug": "amis linkDebug",
+    "build": "amis build2lib && amis build2esm",
     "build2lib": "amis build2lib",
     "build2esm": "amis build2esm",
     "format": "prettier --write \"{src,demo}/**/**/*.{js,jsx,ts,tsx,vue,scss,json}\""
@@ -23,18 +24,6 @@
   "files": [
     "dist/*"
   ],
-  "exports": {
-    ".": {
-      "import": {
-        "node": "./dist/index.umd.min.js",
-        "default": "./dist/index.esm.min.js"
-      },
-      "require": "./dist/index.umd.min.js",
-      "types": "./types/main.d.ts"
-    },
-    "./dist/*": "./dist/*",
-    "./package.json": "./package.json"
-  },
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged",

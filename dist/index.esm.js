@@ -326,7 +326,7 @@ function registerRenderer(newRenderer, rendererOption) {
                 window.postMessage({
                     type: 'aipage-editor-register-renderer-event',
                     eventMsg: `${consoleTag}注册一个自定义aipage-editor渲染器`,
-                    customComponentId: newComponentId
+                    customComponentId: newComponentId,
                 }, '*');
             }
         }
